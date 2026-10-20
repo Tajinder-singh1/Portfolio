@@ -1273,3 +1273,23 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/* Hide contact form status messages by default */
+.contact-form .loading,
+.contact-form .error-message,
+.contact-form .sent-message {
+  display: none;
+}
+
+/* Show success message only after successful submission */
+.contact-form .sent-message {
+  color: #198754;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+/* Show error message only when an error occurs */
+.contact-form .error-message {
+  color: #dc3545;
+  margin-top: 15px;
+}
