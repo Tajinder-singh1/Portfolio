@@ -226,4 +226,44 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * FormSubmit success message after redirect
+   */
+  window.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("submitted") === "true") {
+      const form = document.querySelector(".php-email-form");
+
+      if (form) {
+        const success = form.querySelector(".sent-message");
+        const error = form.querySelector(".error-message");
+        const loading = form.querySelector(".loading");
+
+        if (success) {
+          success.textContent =
+            "Thanks! Your message was submitted successfully.";
+          success.style.display = "block";
+        }
+
+        if (error) {
+          error.textContent = "";
+          error.style.display = "none";
+        }
+
+        if (loading) {
+          loading.style.display = "none";
+        }
+
+        form.reset();
+
+        window.history.replaceState(
+          {},
+          document.title,
+          window.location.pathname + "#contact"
+        );
+      }
+    }
+  });
+
 })();
