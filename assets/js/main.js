@@ -233,7 +233,7 @@
     const params = new URLSearchParams(window.location.search);
 
     if (params.get("submitted") === "true") {
-      const form = document.querySelector(".php-email-form");
+     const form = document.querySelector(".contact-form");
 
       if (form) {
         const success = form.querySelector(".sent-message");
