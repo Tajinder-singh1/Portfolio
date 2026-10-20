@@ -620,6 +620,37 @@ My technical skills include <em><u> Advanced Excel, SQL, Power BI, Pivot Tables,
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("submitted") === "true") {
+    const form = document.querySelector(".php-email-form");
+
+    if (form) {
+      const success = form.querySelector(".sent-message");
+
+      if (success) {
+        success.textContent =
+          "Thanks! Your message was submitted successfully.";
+        success.style.display = "block";
+      }
+
+      const error = form.querySelector(".error-message");
+      if (error) error.style.display = "none";
+
+      form.reset();
+
+      window.history.replaceState(
+        {},
+        document.title,
+        window.location.pathname + "#contact"
+      );
+    }
+  }
+});
+</script>
+
 </body>
 
 </html>
